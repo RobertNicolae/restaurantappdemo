@@ -1,5 +1,5 @@
 export default class EmployeeService {
-  assignEmployeeToOrder(order, employee) {
+  assignEmployeeToOrder.(order, employee) {
     order.employee = employee
 
   }

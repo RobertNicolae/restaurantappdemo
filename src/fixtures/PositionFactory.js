@@ -3,37 +3,23 @@ import Position from '../entities/Position.js'
 export default class PositionFactory {
   getFirstType() {
     let firstType = new Position()
-    firstType.type = 0
+    firstType.type = "dishWasher"
     return firstType;
   }
   getSecondType() {
     let secondType = new Position()
-    secondType.type = 1
+    secondType.type = "miniChef"
     return secondType;
   }
   getThirdType() {
     let thirdType = new Position()
-    thirdType.type = 2
+    thirdType.type = "Chef"
     return thirdType;
   }
   getFourthType() {
     let fourthType = new Position()
-    fourthType.type = 3
+    fourthType.type = "supremeChef"
     return fourthType;
   }
 }
 
-Position.TYPES = {
-  dishWasher: 0,
-  Chef: 1,
-  miniChef: 2,
-  supremeChef: 3
-}
-
-Position.TYPES_LABELS = {
-  [Position.TYPES.firstType]: 'dishWasher',
-  [Position.TYPES.secondType]: 'Chef',
-  [Position.TYPES.thirdType]: 'miniChef',
-  [Position.TYPES.fourthType]: 'supremeChef'
-
-}
