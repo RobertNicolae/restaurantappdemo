@@ -7,8 +7,9 @@ export default class OrderService {
     order.status = Order.STATUSES.inProgress
   }
 
-  assignEmployeeToOrder(order, employee) {
+  assignEmployeeToOrder(order, employee, position) {
     order.employee = employee
+    employee.position = position
 
   }
   makeNewOrder(items, customer, courier = null) {

@@ -1,7 +1,7 @@
 export default class Employee {
   constructor () {
     this._name = ""
-    this._position = ""
+
   }
 
   get name () {
@@ -10,13 +10,5 @@ export default class Employee {
 
   set name (value) {
     this._name = value
-  }
-
-  get position () {
-    return this._position
-  }
-
-  set position (value) {
-    this._position = value
   }
 }

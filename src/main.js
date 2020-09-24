@@ -14,6 +14,10 @@ import ReservationService from './service/ReservationService.js'
 import Reservation from './entities/Reservation.js'
 import Employee from './entities/Employee.js'
 import EmployeeView from './views/EmployeeView.js'
+import Position from './entities/Position.js'
+import CustomerFactory from './fixtures/CustomerFactory.js'
+import EmployeeFactory from './fixtures/EmployeeFactory.js'
+import PositionFactory from './fixtures/PositionFactory.js'
 
 let shawrmaMenu = new Menu()
 let drinksMenu = new Menu()
@@ -38,6 +42,9 @@ const drinkView = new DrinkView()
 const orderService = new OrderService()
 const reservationService = new ReservationService()
 const employeeView = new EmployeeView()
+const customerFactory = new CustomerFactory()
+const employeeFactory = new EmployeeFactory()
+const positionFactory = new PositionFactory()
 
 drinksMenu.addItem(drinkFactory.getMojitoDrink())
 drinksMenu.addItem(drinkFactory.getGreenAppleDrink())
@@ -47,18 +54,18 @@ let totalDrinkPrice = serviceofDrink.calculatePriceOfDrinks(drinksMenu)
 
 let alcoholicDrinks = serviceOfMenu.getListOfDrinkType(drinksMenu, Drink.TYPES.alcoholic)
 alcoholicDrinks.forEach((drink) => console.log(drinkView.showDrinkText(drink)))
-let customer = new Customer()
-customer.email = "dasiknldsa"
-customer.name = "alialifdli"
-let order = orderService.makeNewOrder(shawrmaMenu.items.concat(drinksMenu.items), customer)
+
+let order = orderService.makeNewOrder(shawrmaMenu.items.concat(drinksMenu.items), customerFactory.getFirstCustomer())
 
 let tommorrow = new Date()
 tommorrow.setDate(tommorrow.getDate() + 1)
-let newReservation = reservationService.makeNewReservation(customer, 3, tommorrow, "20:00" )
+let newReservation = reservationService.makeNewReservation(customerFactory.getFirstCustomer(), 3, tommorrow, "20:00" )
 
-let employee = new Employee()
-employee.name = "Robert"
-employee.position = "bucatar"
-let assignEmployee = orderService.assignEmployeeToOrder(order, employee)
-console.log(employeeView.showEmployeeText(employee))
+let position = new Position()
+
+position.name = "Chef"
+position.departament = "kitchen"
+position.description = "Kitchen Chef"
+let assignEmployee = orderService.assignEmployeeToOrder(order, employeeFactory.getFirstEmployee(), positionFactory.getFirstType())
+console.log(employeeView.showEmployeeText(employeeFactory.getFirstEmployee()))
 console.log(order)
