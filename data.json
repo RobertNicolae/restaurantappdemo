@@ -1,0 +1,14 @@
+{
+  "dishs": [
+    {
+      "name": "Shaorma cu pui",
+      "description": "Shaorma mare de pui",
+      "price": 150
+    },
+    {
+      "name": "Shaorma cu vita",
+      "description": "Shaorma mare de vita",
+      "price": 240
+    }
+  ]
+}
